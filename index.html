@@ -7,6 +7,9 @@
     <script src="Build/UnityLoader.js"></script>
     <script>
       var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Yggdrasil.json");
+      window.onunload  = function() {
+        gameInstance.SendMessage("ServerManager", "closeSocket");
+      };
     </script>
   </head>
   <body>
